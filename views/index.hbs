@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>βεκος</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <audio id="bekos" controls="">
+        <source src="/assets/alert.mp3" type="audio/mp3">
+    </audio>
+    <script>var sound = document.getElementById("bekos");
+        sound.style.display = "none";
+
+        var play_sound = function () {
+
+            console.log("bekos");
+            sound.play();
+        };
+
+
+    </script>
+    <h1>βεκος</h1>
+    <p>Welcome to βεκος</p>
+    <img id="bekosImage" src="/assets/bekos.png" class="className">
+    <button onclick="play_sound()">Click</button>
+    <script>for (var i = 0; i < 50; i++) {
+            var newDiv = document.createElement("div");
+            var newContent = document.createTextNode("bekos");
+            newDiv.appendChild(newContent);
+            newDiv.setAttribute("id", "div" + i);
+            newDiv.setAttribute("style", "height: 2em");
+
+            if (i != 0) {
+                var latestDiv = document.getElementById("div" + i - 1);
+
+                document.body.insertBefore(newDiv, latestDiv);
+            }
+        }</script>
+</body>
+
+</html>
