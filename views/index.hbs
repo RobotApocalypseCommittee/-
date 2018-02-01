@@ -34,10 +34,12 @@
         var socket = io();
 
         function broadcast_sound() {
-            socket.emit('BEKOS');
+            socket.emit('BEKOS', name);
         }
 
-        socket.on("BEEKOS", function () {
+        socket.on("BEEKOS", function (msg) {
+            console.log(msg)
+            document.getElementById("message").innerText = msg
             sound.play();
         })
 
@@ -47,7 +49,7 @@
             <div class="action-bread">
             <img id="bekosImage" src="/assets/bekos.png" class="pure-img bread">
             <h1 class="splash-head grow" onclick="broadcast_sound()">βεκος</h1>
-            <p class="splash-subhead">
+            <p class="splash-subhead" id="message">
                 Welcome to βεκος
             </p>
             <p>
