@@ -52,7 +52,7 @@
 
         socket.on("BEEKOS", function (msg) {
             console.log(msg)
-            document.getElementById("message").innerText = msg
+            document.getElementById("message").innerText = msg.message
             sound.play();
         })
 

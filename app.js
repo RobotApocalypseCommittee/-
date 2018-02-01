@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 var hbs = require('express-hbs');
 var Chance = require('chance');
+var chance = new Chance();
 var effects = require("./effects.json");
 const PORT = process.env.PORT || 5000
 
@@ -34,12 +35,14 @@ app.get('/audio', function(req, res){
 function get_random_index() {
   var paths = []
   var probabilities = []
-  for (file in effects) {
-    paths.append(file.path)
-    probabilities.append(file.probability)
+  for (var i = 0; i < effects.length; i++) {
+    var file = effects[i]
+    paths.push(file.path)
+    probabilities.push(file.probability)
   }
-  var chosenpath = Chance.weighted(paths, probabilities)
+  var chosenpath = chance.weighted(paths, probabilities)
   var chosenindex = paths.indexOf(chosenpath)
+  return chosenindex
 }
 
 io.on('connection', function(socket){
@@ -50,7 +53,8 @@ io.on('connection', function(socket){
     } else {
       var msg = "Someone did a βεκος"
     }
-    io.emit('BEEKOS', msg);
+    obj = {"message": msg, "sound":get_random_index()}
+    io.emit('BEEKOS', obj);
   });
   socket.on('disconnect', () => console.log('Client disconnected'));
 });
