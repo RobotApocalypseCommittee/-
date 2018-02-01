@@ -18,9 +18,7 @@
         function isEmpty(str) {
             return (!str || 0 === str.length || str=="null");
         }
-        if (Cookies.get("name")){
-            var name = Cookies.get("name")
-        } else {
+        function change_name(){
             var repeat = true;
             var name = ""
             while (repeat) {
@@ -30,6 +28,11 @@
                 }
             }
             Cookies.set("name", name, { expires: 30 });
+        }
+        if (Cookies.get("name")){
+            var name = Cookies.get("name")
+        } else {
+            change_name()
         }
         var sound = new Howl({
             //src: ['assets/alert.mp3']
@@ -68,6 +71,7 @@
                 <button onclick="broadcast_sound()" class="pure-button pure-button-primary">βεκος</button>
             </p>
             </div>
+            <a onclick="change_name()" id="changename">Change Name</a>
         </div>
 
 </body>
