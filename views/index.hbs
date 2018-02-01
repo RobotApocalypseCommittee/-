@@ -15,10 +15,20 @@
 <body>
 
     <script>
+        function isEmpty(str) {
+            return (!str || 0 === str.length || str=="null");
+        }
         if (Cookies.get("name")){
             var name = Cookies.get("name")
         } else {
-            var name = prompt("Name?")
+            var repeat = true;
+            var name = ""
+            while (repeat) {
+                name = prompt("Name?");
+                if (!isEmpty(name)) {
+                    repeat = false;
+                }
+            }
             Cookies.set("name", name, { expires: 30 });
         }
         var sound = new Howl({
@@ -34,10 +44,12 @@
         var socket = io();
 
         function broadcast_sound() {
-            socket.emit('BEKOS');
+            socket.emit('BEKOS', name);
         }
 
-        socket.on("BEEKOS", function () {
+        socket.on("BEEKOS", function (msg) {
+            console.log(msg)
+            document.getElementById("message").innerText = msg
             sound.play();
         })
 
@@ -49,7 +61,7 @@
                     <img id="bekosImage" src="/assets/bekos.png" class="pure-img bread"  style="visibility: visible">
                 </button>
             <h1 class="splash-head grow" onclick="broadcast_sound()">βεκος</h1>
-            <p class="splash-subhead">
+            <p class="splash-subhead" id="message">
                 Welcome to βεκος
             </p>
             <p>
