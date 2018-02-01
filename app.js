@@ -21,6 +21,7 @@ app.get('/', (req, res) => res.render("index"))
 
 io.on('connection', function(socket){
   console.log('a user connected');
+  socket.on('BEKOS', () => io.emit('BEEKOS', { for: 'everyone' }));
   socket.on('disconnect', () => console.log('Client disconnected'));
 });
 
