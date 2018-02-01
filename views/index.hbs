@@ -15,10 +15,20 @@
 <body>
 
     <script>
+        function isEmpty(str) {
+            return (!str || 0 === str.length || str=="null");
+        }
         if (Cookies.get("name")){
             var name = Cookies.get("name")
         } else {
-            var name = prompt("Name?")
+            var repeat = true;
+            var name = ""
+            while (repeat) {
+                name = prompt("Name?");
+                if (!isEmpty(name)) {
+                    repeat = false;
+                }
+            }
             Cookies.set("name", name, { expires: 30 });
         }
         var sound = new Howl({
