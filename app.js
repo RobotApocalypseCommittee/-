@@ -1,6 +1,8 @@
 const express = require('express')
 const path = require('path')
 var hbs = require('express-hbs');
+var Chance = require('chance');
+var effects = require("./effects.json");
 const PORT = process.env.PORT || 5000
 
 const app = express()
@@ -18,6 +20,27 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
 app.get('/', (req, res) => res.render("index"))
+
+app.get('/audio', function(req, res){
+  var msg = ""
+  for (var i = 0; i < effects.length; i++) {
+    msg += i+","+effects[i].path+"\n";
+  }
+  res.end(msg)
+  
+  
+})
+
+function get_random_index() {
+  var paths = []
+  var probabilities = []
+  for (file in effects) {
+    paths.append(file.path)
+    probabilities.append(file.probability)
+  }
+  var chosenpath = Chance.weighted(paths, probabilities)
+  var chosenindex = paths.indexOf(chosenpath)
+}
 
 io.on('connection', function(socket){
   console.log('a user connected');
