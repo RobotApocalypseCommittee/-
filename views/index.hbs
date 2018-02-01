@@ -4,6 +4,7 @@
 <head>
     <title>βεκος</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.8/howler.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io();
@@ -11,14 +12,13 @@
 </head>
 
 <body>
-    <audio id="bekos" controls="">
-        <source src="/assets/alert.mp3" type="audio/mp3">
-    </audio>
-    <script>var sound = document.getElementById("bekos");
-        sound.style.display = "none";
+
+    <script>
+        var sound = new Howl({
+            src: ['assets/alert.mp3']
+        });
 
         var play_sound = function () {
-
             console.log("bekos");
             sound.play();
         };
