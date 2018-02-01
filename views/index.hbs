@@ -2,8 +2,12 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>βεκος</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/marketing.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.8/howler.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 </head>
@@ -26,30 +30,44 @@
             socket.emit('BEKOS');
         }
 
-        socket.on("BEEKOS", function() {
+        socket.on("BEEKOS", function () {
             sound.play();
         })
 
 
     </script>
-    <h1>βεκος</h1>
-    <p>Welcome to βεκος</p>
-    <img id="bekosImage" src="/assets/bekos.png" class="className">
-    <button onclick="play_sound()">Click</button>
-    <button onclick="broadcast_sound()">Trigger</button>
-    <script>for (var i = 0; i < 50; i++) {
-            var newDiv = document.createElement("div");
-            var newContent = document.createTextNode("bekos");
-            newDiv.appendChild(newContent);
-            newDiv.setAttribute("id", "div" + i);
-            newDiv.setAttribute("style", "height: 2em");
+    <div class="splash-container">
+        <div class="splash">
+            <img id="bekosImage" src="/assets/bekos.png" class="pure-img bread">
+            <h1 class="splash-head grow" onclick="broadcast_sound()">βεκος</h1>
+            <p class="splash-subhead">
+                Welcome to βεκος
+            </p>
+            <p>
+                <button onclick="broadcast_sound()" class="pure-button pure-button-primary">βεκος</button>
+            </p>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <div class="content">
+            <button onclick="play_sound()">Click</button>
+            <button onclick="broadcast_sound()">Trigger</button>
+            <div id="bekoss"></div>
+            <script>for (var i = 0; i < 50; i++) {
+                    var newDiv = document.createElement("div");
+                    var newContent = document.createTextNode("bekos");
+                    newDiv.appendChild(newContent);
+                    newDiv.setAttribute("id", "div" + i);
+                    newDiv.setAttribute("style", "height: 2em");
 
-            if (i != 0) {
-                var latestDiv = document.getElementById("div" + i - 1);
+                    if (i != 0) {
+                        var latestDiv = document.getElementById("bekoss");
 
-                document.body.insertBefore(newDiv, latestDiv);
-            }
-        }</script>
+                        latestDiv.appendChild(newDiv)
+                    }
+                }</script>
+        </div>
+    </div>
 </body>
 
 </html>
