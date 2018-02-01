@@ -1,29 +1,40 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 1rem "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-.box {
-  position: relative;
-  position:fixed !important;
-  position:absolute;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
+.pure-button {
+  background-color: #1f8dd6;
+  color: white;
+  padding: 0.5em 2em;
+  border-radius: 5px;
 }
-.centred {
+
+.pure-button-primary {
+  background: white;
+  color: #1f8dd6;
+  border-radius: 5px;
+  font-size: 120%;
+}
+
+.bread {
+  margin: auto;
+}
+
+.big-container {
+  background-color: #1f8dd6;
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.action-bread {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-.button-xlarge {
-  font-size: 125%;
-}
-
-.bread {
-  margin-left:auto;
-margin-right:auto;
 }
 
 .grow { transition: all .2s ease-in-out; }

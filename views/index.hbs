@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
         crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <link rel="stylesheet" href="/stylesheets/marketing.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.8/howler.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 </head>
@@ -36,8 +35,8 @@
 
 
     </script>
-    <div class="splash-container">
-        <div class="splash">
+        <div class="big-container">
+            <div class="action-bread">
             <img id="bekosImage" src="/assets/bekos.png" class="pure-img bread">
             <h1 class="splash-head grow" onclick="broadcast_sound()">βεκος</h1>
             <p class="splash-subhead">
@@ -46,8 +45,8 @@
             <p>
                 <button onclick="broadcast_sound()" class="pure-button pure-button-primary">βεκος</button>
             </p>
+            </div>
         </div>
-    </div>
     <div class="content-wrapper">
         <div class="content">
             <button onclick="play_sound()">Click</button>
