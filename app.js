@@ -23,11 +23,19 @@ app.set('views', __dirname + '/views');
 app.get('/', (req, res) => res.render("index"))
 
 app.get('/audio', function(req, res){
-  var msg = ""
-  for (var i = 0; i < effects.length; i++) {
-    msg += i+","+effects[i].path+"\n";
+  if (req.query.format == "json"){
+    var resp = []
+    for (var i = 0; i < effects.length; i++) {
+      resp.push(effects[i].path)
+    }
+    res.json(resp);
+  } else {
+    var msg = ""
+    for (var i = 0; i < effects.length; i++) {
+      msg += i+","+effects[i].path+"\n";
+    }
+    res.send(msg)
   }
-  res.end(msg)
   
   
 })

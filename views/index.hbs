@@ -8,6 +8,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.8/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nanoajax/0.4.3/nanoajax.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 </head>
@@ -34,6 +35,17 @@
         } else {
             change_name()
         }
+        var audios = []
+        nanoajax.ajax({url:'/audio?format=json'}, function (code, responseText) {
+            if (code == 200) {
+                var paths = JSON.parse(responseText);
+                for (var i = 0;i<paths.length;i++) {
+                    audios.push(new Howl({
+                        src: [paths[i]]
+                    }));
+                }
+            }
+        })
         var sound = new Howl({
             //src: ['assets/alert.mp3']
             src: ['assets/Bekos.m4a'] 
@@ -53,7 +65,11 @@
         socket.on("BEEKOS", function (msg) {
             console.log(msg)
             document.getElementById("message").innerText = msg.message
-            sound.play();
+            if (audios.length > 0) {
+                audios[msg.sound].play()
+            } else {
+                sound.play();
+            }
         })
 
 
