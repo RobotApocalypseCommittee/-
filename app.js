@@ -55,14 +55,18 @@ function get_random_index() {
 
 io.on('connection', function(socket){
   console.log('a user connected');
+  socket.lastBekos = Date.now();
   socket.on('BEKOS', function(name){
-    if (name) {
-      var msg = name+ " did a βεκος"
-    } else {
-      var msg = "Someone did a βεκος"
+    if ((Date.now() - socket.lastBekos) > 2000 ) {
+      if (name) {
+        var msg = name+ " did a βεκος"
+      } else {
+        var msg = "Someone did a βεκος"
+      }
+      obj = {"message": msg, "sound":get_random_index()}
+      socket.lastBekos = Date.now()
+      io.emit('BEEKOS', obj);
     }
-    obj = {"message": msg, "sound":get_random_index()}
-    io.emit('BEEKOS', obj);
   });
   socket.on('disconnect', () => console.log('Client disconnected'));
 });
