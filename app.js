@@ -57,7 +57,7 @@ io.on('connection', function(socket){
   console.log('a user connected');
   socket.lastBekos = Date.now();
   socket.on('BEKOS', function(name){
-    if ((Date.now() - socket.lastBekos) > 2000 ) {
+    if ((Date.now() - socket.lastBekos) > 500 ) {
       if (name) {
         var msg = name+ " did a βεκος"
       } else {
