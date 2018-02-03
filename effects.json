@@ -1,7 +1,7 @@
 [
-    {"path":"/assets/alert.mp3", "probability":3},
-    {"path":"/assets/AnthonyBekos.mp3", "probability":1},
-    {"path":"/assets/Bekos.mp3", "probability":1},
-    {"path":"/assets/RitBekos.mp3", "probability":1},
-    {"path":"/assets/VayuBekos.mp3", "probability":1}
+    {"path":"/assets/alert.mp3", "probability":1},
+    {"path":"/assets/AnthonyBekos.mp3", "probability":4},
+    {"path":"/assets/Bekos.mp3", "probability":6},
+    {"path":"/assets/RitBekos.mp3", "probability":4},
+    {"path":"/assets/VayuBekos.mp3", "probability":4}
 ]
