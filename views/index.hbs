@@ -29,7 +29,7 @@
                 <a class="pure-menu-heading" href="#">Βεκος</a>
 
                 <ul class="pure-menu-list">
-                    <li class="pure-menu-item pure-menu-selected">
+                    <li class="pure-menu-item">
                         <a href="#" class="pure-menu-link">Home</a>
                     </li>
                     <li class="pure-menu-item">
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class="big-container animate" id="main">
+        <div class="big-container background-breathe" id="main">
             <div class="action-bread">
                 <button onclick="broadcast_sound()" style="visibility: hidden">
                     <img id="bekosImage" src="/assets/uberbekos.png" class="pure-img bread grow" style="visibility: visible">
@@ -49,7 +49,9 @@
                     Welcome to βεκος
                 </p>
                 <p>
-                    <button onclick="broadcast_sound()" class="pure-button pure-button-primary grow">βεκος</button>
+                    <button onclick="broadcast_sound()" class="pure-button pure-button-primary grow">
+                        <span class="text-breathe">βεκος</span>
+                    </button>
                 </p>
             </div>
             <a onclick="change_name()" class="splash-subhead grow" id="changename">νεον ονομα</a>

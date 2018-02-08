@@ -67,10 +67,15 @@ a {
 
 .background-breathe {
   background-color: #1f8dd6;
-  animation: background-animate 30s infinite;
+  animation: animate-background 30s infinite;
 }
 
-@keyframes rainbow {
+.text-breathe {
+  color: #1f8dd6;
+  animation: animate-text 30s infinite;
+}
+
+@keyframes animate-background {
   0%,
   100% {
     background-color: #1f8dd6;
@@ -86,6 +91,21 @@ a {
   }
 }
 
+@keyframes animate-text {
+  0%,
+  100% {
+    color: #1f8dd6;
+  }
+  25% {
+    color: #d61f8d;
+  }
+  50% {
+    color: #d6681f;
+  }
+  75% {
+    color: #1fd668;
+  }
+}
 /*
 Add transition to containers so they can push in and out.
 */
@@ -183,7 +203,7 @@ appears on the left side of the page.
 
 #menu .pure-menu-selected,
 #menu .pure-menu-heading {
-  background: #1f8dd6;
+  background: #000;
 }
 
 /*
