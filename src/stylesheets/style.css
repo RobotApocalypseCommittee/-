@@ -102,9 +102,6 @@ a {
   }
 }
 
-.noice-corner {
-  border-bottom-right-radius: 20px;
-}
 /*
 Add transition to containers so they can push in and out.
 */
@@ -246,6 +243,7 @@ small screens.
   width: 2em;
   height: auto;
   padding: 2.1em 1.6em;
+  border-bottom-right-radius: 5px;
 }
 
 .menu-link:hover,
