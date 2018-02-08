@@ -59,17 +59,29 @@ a {
   font-size: 1.5rem
 }
 
-.animate {
+.background-breathe {
   background-color: #1f8dd6;
-  background-image: linear-gradient(to center, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 1) 100%);
-  animation: rainbow 30s infinite;
+  animation: background-animate 30s infinite;
 }
 
-@keyframes rainbow {
+.text-breathe {
+  color: #1f8dd6;
+  animation: text-animate 30s infinite;
+}
+
+@keyframes background-animate {
   0%, 100% { background-color: #1f8dd6; }
   25% { background-color: #d61f8d; }
   50% { background-color: #d6681f; }
   75% { background-color: #1fd668; }
 }
+
+@keyframes text-animate {
+  0%, 100% { color: #1f8dd6; }
+  25% { color: #d61f8d; }
+  50% { color: #d6681f; }
+  75% { color: #1fd668; }
+}
+
 
 

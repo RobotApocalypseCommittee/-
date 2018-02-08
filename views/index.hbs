@@ -11,6 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/nanoajax/0.4.3/nanoajax.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+
+    <script src="/libraries/jquery-3.3.1.js"></script>
+    <script src="/libraries/flying_bread.js"></script>
 </head>
 
 <body>
@@ -72,11 +75,13 @@
             }
         })
 
+        
+
 
     </script>
-        <div class="big-container animate">
+        <div class="big-container background-breathe" id="main">
             <div class="action-bread">
-                <button onclick="broadcast_sound()" style="visibility: hidden">
+                <button onclick="broadcast_sound(); bread_will_fly();" style="visibility: hidden">
                     <img id="bekosImage" src="/assets/uberbekos.png" class="pure-img bread grow"  style="visibility: visible">
                 </button>
             <h1 class="splash-head">βεκος</h1>
@@ -84,7 +89,9 @@
                 Welcome to βεκος
             </p>
             <p>
-                <button onclick="broadcast_sound()" class="pure-button pure-button-primary grow">βεκος</button>
+                <button onclick="broadcast_sound(); bread_will_fly();" class="pure-button pure-button-primary grow">
+                    <span class="text-breathe">βεκος</span>
+                </button>
             </p>
             </div>
             <a onclick="change_name()" class="splash-subhead grow" id="changename">νεον ονομα</a>
