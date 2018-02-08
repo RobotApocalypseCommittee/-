@@ -34,3 +34,6 @@ build
 node_modules
 
 .vscode/
+
+# GULP DOES IT FOR US
+public/stylesheets/*
