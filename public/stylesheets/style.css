@@ -101,6 +101,10 @@ a {
     color: #1fd668;
   }
 }
+
+.noice-corner {
+  border-bottom-right-radius: 20px;
+}
 /*
 Add transition to containers so they can push in and out.
 */
