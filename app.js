@@ -20,6 +20,10 @@ app.engine('hbs', hbs.express4({
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
+
+var proseRouter = require("./routes/prose")
+app.use('/prose',proseRouter)
+
 app.get('/', (req, res) => res.render("index"))
 
 app.get('/audio', function(req, res){

@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/prose.css">
+    <link rel="stylesheet" href="/stylesheets/animations.css">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="/js/prose.js"></script>
+
+    <script>
+        function toTwo() {
+            $(".full").toggleClass("transIn transOut visible")
+        }
+        function toOne() {
+        }
+    </script>
+</head>
+
+<body>
+    <div class="full transition transIn visible" id="one">Hello</div>
+    <div class="full transition transOut" id="two">Bye</div>
+    <button onclick="toTwo()">Two</button>
+    <button onclick="toOne()">One</button>
+    <input type="text" autofocus>
+</body>
+
+</html>
