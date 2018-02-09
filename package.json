@@ -3,15 +3,22 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./app.js"
+    "start": "node ./app.js",
+    "postinstall": "gulp"
   },
   "dependencies": {
+    "autoprefixer": "^7.2.5",
     "body-parser": "~1.18.2",
     "chance": "^1.0.13",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.15.5",
     "express-hbs": "^1.0.4",
+    "gulp": "^3.9.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sourcemaps": "^2.6.4",
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
     "serve-favicon": "~2.4.5",
