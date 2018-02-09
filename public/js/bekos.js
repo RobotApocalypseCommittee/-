@@ -53,3 +53,20 @@ socket.on("BEEKOS", function (msg) {
         sound.play();
     }
 })
+
+function birth_bread() {
+    var new_bread = document.createElement("img");
+    new_bread.src = "/assets/bekos.png";
+    new_bread.style.maxWidth = Math.floor(Math.random() * 20) + "%";
+    
+    new_bread.style.left = Math.floor(
+        Math.random() * 100) + "%";
+    new_bread.style.top = Math.floor(
+        Math.random() * 80) + "%";
+    
+    new_bread.className = "flyingbread";
+    document.getElementById("main").appendChild(new_bread);
+    setTimeout(function() {
+        new_bread.remove();
+      }, 2000);
+}

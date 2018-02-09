@@ -70,6 +70,16 @@ a {
   animation: animate-text 30s infinite;
 }
 
+.noice-corner {
+  border-bottom-right-radius: 20px;
+}
+
+.flyingbread {
+  overflow: hidden;
+  position: absolute;
+  animation: flying-bread 2s;
+}
+
 @keyframes animate-background {
   0%,
   100% {
@@ -102,8 +112,12 @@ a {
   }
 }
 
-.noice-corner {
-  border-bottom-right-radius: 20px;
+@keyframes flying-bread {
+100% {
+  opacity: 0;
+  transform:rotate(360deg);
+}
+
 }
 /*
 Add transition to containers so they can push in and out.
