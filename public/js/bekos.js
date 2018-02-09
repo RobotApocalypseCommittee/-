@@ -59,14 +59,27 @@ function birth_bread() {
     new_bread.src = "/assets/bekos.png";
     new_bread.style.maxWidth = Math.floor(Math.random() * 20) + "%";
     
-    new_bread.style.left = Math.floor(
-        Math.random() * 100) + "%";
-    new_bread.style.top = Math.floor(
-        Math.random() * 80) + "%";
-    
+    if (Math.round(Math.random())) {
+        new_bread.style.left = random_range(0, 40) + "%";
+    }  
+    else {
+        new_bread.style.right = random_range(0, 40) + "%";
+    }
+
+    if (Math.round(Math.random())) {
+        new_bread.style.top = random_range(0, 30) + "%";
+    }
+    else {
+        new_bread.style.top = random_range(50, 70) + "%";
+    }
+
     new_bread.className = "flyingbread";
     document.getElementById("main").appendChild(new_bread);
     setTimeout(function() {
         new_bread.remove();
       }, 2000);
+}
+
+function random_range(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
 }
